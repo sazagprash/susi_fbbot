@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 var token = process.env.FB_PAGE_ACCESS_TOKEN;
 
 function sendTextMessage(sender, text) {
-	var messageData = { text:text };
+	var messageDatas = { text:text };
 	
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -23,7 +23,7 @@ function sendTextMessage(sender, text) {
 		method: 'POST',
 		json: {
 			recipient: {id:sender},
-			message: messageData,
+			message: messageDatas,
 		}
 	}, function(error, response, body) {
 		if (error) {
